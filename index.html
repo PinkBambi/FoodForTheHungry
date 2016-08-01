@@ -7,13 +7,22 @@
 </head>
 
 <body>
-    <textarea id="saveToFile">&nbsp</textarea><br>
+    <textarea id="saveToFile">&nbsp</textarea>
+    <br>
     <button type="button" onclick="saveRecepieToFile()">Save To File</button>
-    <br><br>
+    <br>
+    <br>
 
     <input id="here" type="text" onkeypress="return runScript(event)" onclick="textClear(this);" placeholder="Search" />
     <button id="Den" style="display: none;" onclick="search()" value="Submit">Hur säger jag det?</button>
     <div id="platsen"></div>
+    <br>
+    <br>
+    <br>
+
+    <input type="button" name="name" value="What do I wan't today?" onclick="whatShouldIHaveToday()" />
+    <div id="postTheRecepie"></div>
+
 
     <script src="data.js" type="text/javascript"></script>
     <script src="functions.js" type="text/javascript"></script>

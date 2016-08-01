@@ -23,11 +23,11 @@ function search() {
                 if (a === 0) {
                     stronk.innerHTML = stronk.innerHTML +
                         "Matens namn: <strong>" + p.firstArrPlace.cap1Letter() +
-                        "</strong> Receptet: <strong>" + p.secondArrPlace.cap1Letter() + "</strong><br>" ; //+ p.thirdArrPlace + "<br>";
+                        "</strong> Receptet: <strong>" + p.secondArrPlace.cap1Letter() + "</strong><br>"; //+ p.thirdArrPlace + "<br>";
                 } else {
                     stronk.innerHTML = stronk.innerHTML +
                         "Receptet: <strong>" + p.secondArrPlace.cap1Letter() +
-                        "</strong> Matens namn: <strong>" + p.firstArrPlace.cap1Letter() + "</strong><br>" ; //+ p.thirdArrPlace + "<br>";
+                        "</strong> Matens namn: <strong>" + p.firstArrPlace.cap1Letter() + "</strong><br>"; //+ p.thirdArrPlace + "<br>";
                 }
             };
             printAll(arraY);
@@ -58,14 +58,34 @@ function runScript(e) {
 }
 
 function saveRecepieToFile() {
-  var textToSave;
-  var hiddenElement;
+    var textToSave;
+    var hiddenElement;
 
-  textToSave = document.getElementById("saveToFile").value;
-  hiddenElement = document.createElement('a');
+    textToSave = document.getElementById("saveToFile").value;
+    hiddenElement = document.createElement('a');
 
-  hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
-  hiddenElement.target = '_blank';
-  hiddenElement.download = 'recepie.js';
-  hiddenElement.click();
+    hiddenElement.href = 'data:attachment/text,' + encodeURI(textToSave);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'recepie.js';
+    hiddenElement.click();
+}
+
+function whatShouldIHaveToday() {
+    var foodToday;
+    var recName;
+    var recIngredients;
+    var postTheRecepie;
+
+      foodToday = (Math.floor(Math.random() * data.length + 1) - 1);
+
+        console.log("Nr: " + foodToday);
+        console.log(data[foodToday][2]);
+
+        recName = data[foodToday][0];
+        recIngredients = data[foodToday][1];
+
+        postTheRecepie = recName + "<br><br>" + recIngredients;
+
+        document.getElementById("postTheRecepie").innerHTML = postTheRecepie;
+
 }
