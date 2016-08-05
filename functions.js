@@ -70,21 +70,28 @@ function saveRecepieToFile() {
     hiddenElement.click();
 }
 
+    var doNotRepeat;
+
 function whatShouldIHaveToday() {
     var foodToday;
     var recName;
     var recIngredients;
+    var recWhatToDo;
     var postTheRecepie;
 
+      /* Generate a number that reprecents arraynumber */
       foodToday = (Math.floor(Math.random() * data.length + 1) - 1);
-
-        console.log("Nr: " + foodToday);
-        console.log(data[foodToday][2]);
+        //console.log("Nr: " + foodToday);
+      /* So that I won't get the same recepie in a row */
+      if (doNotRepeat === foodToday) {
+        foodToday = (Math.floor(Math.random() * data.length + 1) - 1);
+      } else doNotRepeat = foodToday;
 
         recName = data[foodToday][0];
         recIngredients = data[foodToday][1];
+        recWhatToDo = data[foodToday][2];
 
-        postTheRecepie = recName + "<br><br>" + recIngredients;
+        postTheRecepie = recName.cap1Letter() + "<br><br>" + recIngredients + "<br><br>" + recWhatToDo;
 
         document.getElementById("postTheRecepie").innerHTML = postTheRecepie;
 
